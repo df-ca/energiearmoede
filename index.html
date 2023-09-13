@@ -38,7 +38,7 @@
         <script>
         var map = L.map('map', {
             zoomControl:true, maxZoom:15, minZoom:10
-        }).fitBounds([[52.732701627648765,4.901359095283477],[53.573802687183104,6.488620631892395]]);
+        }).fitBounds([[52.775626748318906,4.854063029020364],[53.61262308819983,6.490557831898493]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -218,48 +218,28 @@
                         <td>' + (feature.properties['Percentage'] !== null ? autolinker.link(feature.properties['Percentage'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">bBuurtnaam</th>\
-                        <td>' + (feature.properties['bBuurtnaam'] !== null ? autolinker.link(feature.properties['bBuurtnaam'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">bGemeente</th>\
-                        <td>' + (feature.properties['bGemeente'] !== null ? autolinker.link(feature.properties['bGemeente'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">bPercentage huishoudens met energiearmoede</th>\
-                        <td>' + (feature.properties['bPercentage huishoudens met energiearmoede'] !== null ? autolinker.link(feature.properties['bPercentage huishoudens met energiearmoede'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">bAantal huishoudens</th>\
+                        <th scope="row">Aantal huishoudens</th>\
                         <td>' + (feature.properties['bAantal huishoudens'] !== null ? autolinker.link(feature.properties['bAantal huishoudens'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">bAantal huishoudens met energiearmoede</th>\
+                        <th scope="row">Aantal huishoudens met energiearmoede</th>\
                         <td>' + (feature.properties['bAantal huishoudens met energiearmoede'] !== null ? autolinker.link(feature.properties['bAantal huishoudens met energiearmoede'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">bPercentage koopwoningen</th>\
+                        <th scope="row">Percentage Koopwoningen</th>\
                         <td>' + (feature.properties['bPercentage koopwoningen'] !== null ? autolinker.link(feature.properties['bPercentage koopwoningen'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">bPercentage huurwoningen</th>\
+                        <th scope="row">Percentage huurwoningen</th>\
                         <td>' + (feature.properties['bPercentage huurwoningen'] !== null ? autolinker.link(feature.properties['bPercentage huurwoningen'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">bPercentage wooncorporatie</th>\
+                        <th scope="row">Percentage corporatiewoningen</th>\
                         <td>' + (feature.properties['bPercentage wooncorporatie'] !== null ? autolinker.link(feature.properties['bPercentage wooncorporatie'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">bPercentage overige verhuur</th>\
+                        <th scope="row">Percentage overige verhuur</th>\
                         <td>' + (feature.properties['bPercentage overige verhuur'] !== null ? autolinker.link(feature.properties['bPercentage overige verhuur'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">bPercentage bouwjaar voor 2000</th>\
-                        <td>' + (feature.properties['bPercentage bouwjaar voor 2000'] !== null ? autolinker.link(feature.properties['bPercentage bouwjaar voor 2000'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">bPercentage bouwjaar na 2000</th>\
-                        <td>' + (feature.properties['bPercentage bouwjaar na 2000'] !== null ? autolinker.link(feature.properties['bPercentage bouwjaar na 2000'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
@@ -352,36 +332,36 @@
                         <td>' + (feature.properties['Plaats'] !== null ? autolinker.link(feature.properties['Plaats'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Kleine ene</th>\
-                        <td>' + (feature.properties['Kleine ene'] !== null ? autolinker.link(feature.properties['Kleine ene'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Fixvergoed</th>\
-                        <td>' + (feature.properties['Fixvergoed'] !== null ? autolinker.link(feature.properties['Fixvergoed'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Bezoek Ene</th>\
+                        <th scope="row">Bezoek Energiecoach</th>\
                         <td>' + (feature.properties['Bezoek Ene'] !== null ? autolinker.link(feature.properties['Bezoek Ene'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Homewizard</th>\
+                        <th scope="row">Homewizard(bewustwording)</th>\
                         <td>' + (feature.properties['Homewizard'] !== null ? autolinker.link(feature.properties['Homewizard'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Speedcomfo</th>\
+                        <th scope="row">Speedcomfort ventilator</th>\
                         <td>' + (feature.properties['Speedcomfo'] !== null ? autolinker.link(feature.properties['Speedcomfo'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Scan warmt</th>\
+                        <th scope="row">San warmtebeeld camera</th>\
                         <td>' + (feature.properties['Scan warmt'] !== null ? autolinker.link(feature.properties['Scan warmt'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Waterzijdi</th>\
+                        <th scope="row">Waterzijdig inregelen CV-installatie</th>\
                         <td>' + (feature.properties['Waterzijdi'] !== null ? autolinker.link(feature.properties['Waterzijdi'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Bezoek van</th>\
+                        <th scope="row">Bezoek van Energieadviseur</th>\
                         <td>' + (feature.properties['Bezoek van'] !== null ? autolinker.link(feature.properties['Bezoek van'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Fixvergoeding van Energiebank</th>\
+                        <td>' + (feature.properties['Fix_corr'] !== null ? autolinker.link(feature.properties['Fix_corr'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Kleine energiebesparende maatregel(en) a €70,-</th>\
+                        <td>' + (feature.properties['Kleine_cor'] !== null ? autolinker.link(feature.properties['Kleine_cor'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
@@ -461,7 +441,7 @@
                 weight: 1,
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(186,186,186,1.0)',
+                fillColor: 'rgba(239,201,87,1.0)',
                 interactive: true,
             }
         }
@@ -1118,19 +1098,6 @@
         var baseMaps = {};
         L.control.layers(baseMaps,{'<img src="legend/Gemeentegrenzen_5.png" /> Gemeentegrenzen': layer_Gemeentegrenzen_5,'<img src="legend/Tenemenmaatregelen_4.png" /> Te nemen maatregelen': layer_Tenemenmaatregelen_4,'<img src="legend/Reedsgenomenmaatregelen_3.png" /> Reeds genomen maatregelen': layer_Reedsgenomenmaatregelen_3,'Kans op energiearmoede (%)<br /><table><tr><td style="text-align: center;"><img src="legend/Kansopenergiearmoede_2_020.png" /></td><td>0 - 2</td></tr><tr><td style="text-align: center;"><img src="legend/Kansopenergiearmoede_2_251.png" /></td><td>2 - 5</td></tr><tr><td style="text-align: center;"><img src="legend/Kansopenergiearmoede_2_572.png" /></td><td>5 - 7</td></tr><tr><td style="text-align: center;"><img src="legend/Kansopenergiearmoede_2_793.png" /></td><td>7 - 9</td></tr><tr><td style="text-align: center;"><img src="legend/Kansopenergiearmoede_2_9124.png" /></td><td>9 - 12</td></tr><tr><td style="text-align: center;"><img src="legend/Kansopenergiearmoede_2_123645.png" /></td><td>12 - 36,4</td></tr></table>': layer_Kansopenergiearmoede_2,'Aantal huishoudens met energiearmoede<br /><table><tr><td style="text-align: center;"><img src="legend/Aantalhuishoudensmetenergiearmoede_1_0500.png" /></td><td>0 - 50</td></tr><tr><td style="text-align: center;"><img src="legend/Aantalhuishoudensmetenergiearmoede_1_501001.png" /></td><td>50 - 100</td></tr><tr><td style="text-align: center;"><img src="legend/Aantalhuishoudensmetenergiearmoede_1_1001502.png" /></td><td>100 - 150</td></tr><tr><td style="text-align: center;"><img src="legend/Aantalhuishoudensmetenergiearmoede_1_1502003.png" /></td><td>150 - 200</td></tr><tr><td style="text-align: center;"><img src="legend/Aantalhuishoudensmetenergiearmoede_1_2003004.png" /></td><td>200 - 300</td></tr><tr><td style="text-align: center;"><img src="legend/Aantalhuishoudensmetenergiearmoede_1_3005905.png" /></td><td>300 - 590</td></tr></table>': layer_Aantalhuishoudensmetenergiearmoede_1,"OpenStreetMap": layer_OpenStreetMap_0,},{collapsed:false}).addTo(map);
         setBounds();
-        var i = 0;
-        layer_Gemeentegrenzen_5.eachLayer(function(layer) {
-            var context = {
-                feature: layer.feature,
-                variables: {}
-            };
-            layer.bindTooltip((layer.feature.properties['gemeentena'] !== null?String('<div style="color: #ffffff; font-size: 16pt; font-family: \'Arial\', sans-serif;">' + layer.feature.properties['gemeentena']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_Gemeentegrenzen_5'});
-            labels.push(layer);
-            totalMarkers += 1;
-              layer.added = true;
-              addLabel(layer, i);
-              i++;
-        });
         resetLabels([layer_Tenemenmaatregelen_4,layer_Gemeentegrenzen_5]);
         map.on("zoomend", function(){
             resetLabels([layer_Tenemenmaatregelen_4,layer_Gemeentegrenzen_5]);
