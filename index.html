@@ -8,6 +8,7 @@
         <meta name="apple-mobile-web-app-capable" content="yes">
         <link rel="stylesheet" href="css/leaflet.css">
         <link rel="stylesheet" href="css/qgis2web.css"><link rel="stylesheet" href="css/fontawesome-all.min.css">
+        <link rel="stylesheet" href="css/leaflet-control-geocoder.Geocoder.css">
         <style>
         html, body, #map {
             width: 100%;
@@ -30,6 +31,7 @@
         <script src="js/rbush.min.js"></script>
         <script src="js/labelgun.min.js"></script>
         <script src="js/labels.js"></script>
+        <script src="js/leaflet-control-geocoder.Geocoder.js"></script>
         <script src="data/Aantalhuishoudensmetenergiearmoede_1.js"></script>
         <script src="data/Kansopenergiearmoede_2.js"></script>
         <script src="data/Reedsgenomenmaatregelen_3.js"></script>
@@ -38,7 +40,7 @@
         <script>
         var map = L.map('map', {
             zoomControl:true, maxZoom:15, minZoom:10
-        }).fitBounds([[52.73447451068457,4.8103721230334795],[53.58250187647501,6.467059650092336]]);
+        }).fitBounds([[52.73447451068457,4.810372123033489],[53.582501876474986,6.4670596500923105]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -1078,7 +1080,7 @@
                 lineJoin: 'miter',
                 weight: 2.0, 
                 fillOpacity: 0,
-                interactive: false,
+                interactive: true,
             }
         }
         map.createPane('pane_Gemeentegrenzen_5');
@@ -1086,7 +1088,7 @@
         map.getPane('pane_Gemeentegrenzen_5').style['mix-blend-mode'] = 'normal';
         var layer_Gemeentegrenzen_5 = new L.geoJson(json_Gemeentegrenzen_5, {
             attribution: '',
-            interactive: false,
+            interactive: true,
             dataVar: 'json_Gemeentegrenzen_5',
             layerName: 'layer_Gemeentegrenzen_5',
             pane: 'pane_Gemeentegrenzen_5',
@@ -1095,6 +1097,16 @@
         });
         bounds_group.addLayer(layer_Gemeentegrenzen_5);
         map.addLayer(layer_Gemeentegrenzen_5);
+        var osmGeocoder = new L.Control.Geocoder({
+            collapsed: true,
+            position: 'topleft',
+            text: 'Search',
+            title: 'Testing'
+        }).addTo(map);
+        document.getElementsByClassName('leaflet-control-geocoder-icon')[0]
+        .className += ' fa fa-search';
+        document.getElementsByClassName('leaflet-control-geocoder-icon')[0]
+        .title += 'Search for a place';
         var baseMaps = {};
         L.control.layers(baseMaps,{'<img src="legend/Gemeentegrenzen_5.png" /> Gemeentegrenzen': layer_Gemeentegrenzen_5,'<img src="legend/Tenemenmaatregelen_4.png" /> Te nemen maatregelen': layer_Tenemenmaatregelen_4,'<img src="legend/Reedsgenomenmaatregelen_3.png" /> Reeds genomen maatregelen': layer_Reedsgenomenmaatregelen_3,'Kans op energiearmoede (%)<br /><table><tr><td style="text-align: center;"><img src="legend/Kansopenergiearmoede_2_020.png" /></td><td>0 - 2</td></tr><tr><td style="text-align: center;"><img src="legend/Kansopenergiearmoede_2_251.png" /></td><td>2 - 5</td></tr><tr><td style="text-align: center;"><img src="legend/Kansopenergiearmoede_2_572.png" /></td><td>5 - 7</td></tr><tr><td style="text-align: center;"><img src="legend/Kansopenergiearmoede_2_793.png" /></td><td>7 - 9</td></tr><tr><td style="text-align: center;"><img src="legend/Kansopenergiearmoede_2_9124.png" /></td><td>9 - 12</td></tr><tr><td style="text-align: center;"><img src="legend/Kansopenergiearmoede_2_123645.png" /></td><td>12 - 36,4</td></tr></table>': layer_Kansopenergiearmoede_2,'Aantal huishoudens met energiearmoede<br /><table><tr><td style="text-align: center;"><img src="legend/Aantalhuishoudensmetenergiearmoede_1_0500.png" /></td><td>0 - 50</td></tr><tr><td style="text-align: center;"><img src="legend/Aantalhuishoudensmetenergiearmoede_1_501001.png" /></td><td>50 - 100</td></tr><tr><td style="text-align: center;"><img src="legend/Aantalhuishoudensmetenergiearmoede_1_1001502.png" /></td><td>100 - 150</td></tr><tr><td style="text-align: center;"><img src="legend/Aantalhuishoudensmetenergiearmoede_1_1502003.png" /></td><td>150 - 200</td></tr><tr><td style="text-align: center;"><img src="legend/Aantalhuishoudensmetenergiearmoede_1_2003004.png" /></td><td>200 - 300</td></tr><tr><td style="text-align: center;"><img src="legend/Aantalhuishoudensmetenergiearmoede_1_3005905.png" /></td><td>300 - 590</td></tr></table>': layer_Aantalhuishoudensmetenergiearmoede_1,"OpenStreetMap": layer_OpenStreetMap_0,},{collapsed:false}).addTo(map);
         setBounds();
